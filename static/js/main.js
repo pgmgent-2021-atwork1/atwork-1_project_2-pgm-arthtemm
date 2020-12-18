@@ -97,7 +97,7 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                             </div>
                         </div>
                         <div class="highlight-bottom__content">
-                            <span class="bottom__date"><span class="date__day">${event.day_of_week.slice(0,2)} ${event.day} Jul</span> <span class="date__time">${event.start} u.</span></span>
+                            <span class="bottom__date"><span class="date__time">${event.start} u.</span></span>
                             <h2 class="bottom__title">${event.title}</h2>
                             <span class="bottom__loc">${event.location}</span>
                         </div>
