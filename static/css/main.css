@@ -937,3 +937,25 @@ footer .footer_social_media svg {
 .day_filter_options_checkbox li {
     display: inline-block;
 }
+
+.events_per_category {
+    width: 85%;
+    margin: auto;
+}
+
+.events_per_category .titles h1 {
+    font-family: 'Raleway-Bold';
+    margin-bottom: 1rem;
+}
+
+.titles ul {
+    list-style-type: none;
+}
+
+.titles a {
+    text-decoration: none;
+}
+
+.titles a:hover {
+    cursor: pointer;
+}

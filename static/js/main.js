@@ -74,10 +74,9 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                 return `
                     <section>
                         <a href="#${category}">
-                        <h2>${category}</h2>
+                            <h2>${category}</h2>
                         </a>
-                    </section>
-                `;
+                    </section>`;
             }).join('');
             this.$dayFilterCategories.innerHTML = htmlForCategories;
         },
@@ -107,8 +106,10 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                 }).join('');
 
                 return `
-                    <section>
-                        <h2>${category}</h2>
+                    <section class="titles">
+                        <h1 id="${category}">${category} <a href="#main"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <path d="M13.682 11.791l-6.617 6.296-3.065-2.916 11.74-11.171 12.26 11.665-2.935 2.793-7.113-6.768v16.311h-4.269z"></path>
+                        </svg></span></a></h1>
                         <ul>
                             ${listItems}
                         </ul>
