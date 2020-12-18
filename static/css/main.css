@@ -139,27 +139,28 @@ main {
     }
 
     .calendar {
-        width: 50%;
+        width: 40%;
         position: absolute;
         top: 20rem;
         right: 0;
     }
 
     .calendar ul {
-        background: white;
         display: flex;
-        flex-direction: row;
-        width: 100%;
-    }
-
-    .calendar li a {
-        display: block;
-        transition: 0.3s;
-        color: black;
+        flex-wrap: wrap;
     }
 
     .calendar li {
-        width: 50%;
+        width: 10%;
+    }
+
+    .calendar ul {
+        background: white;
+    }
+
+    .calendar li a {
+        transition: 0.3s;
+        color: black;
     }
 
     .calendar li:hover {
@@ -168,11 +169,6 @@ main {
 
     .calendar li a:hover {
         color: white;
-    }
-
-    .ontdek .gf19_container img {
-        position: absolute;
-        right: 0;
     }
 
     .fullscreen_nav-top {
@@ -200,6 +196,62 @@ main {
     }
 
     .fullscreen_nav-top svg path {
+        fill: white;
+    }
+
+    .fullscreen_nav-top button {
+        width: 10%;
+        background: black;
+        border: none;
+    }
+
+    .fullscreen_nav-top span svg {
+        padding-top: 2rem;
+        fill: white;
+    }
+
+    .fullscreen_nav_nav {
+        position: absolute;
+        top: 5rem;
+        right: 0;
+    }
+
+    .fullscreen_nav_nav li {
+        font-family: 'Raleway-Bold';
+        display: inline-block;
+        margin: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+
+    .fullscreen_nav_nav li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .fullscreen_nav_nav li a:hover {
+        text-decoration: underline; 
+    }
+
+    .ontdek .gf19_container {
+        position: absolute;
+        right: 22rem;
+        transform: rotate(270deg);
+        top: 10rem;
+    }
+
+    .ontdek .gf19_container path {
+        right: 0;
+        fill: white;
+    }
+
+    .ontdek .ontdek_svg {
+        width: 25rem;
+        position: absolute;
+        right: 2rem;
+        top: 13rem;
+    }
+
+    .ontdek .ontdek_svg path {
         fill: white;
     }
 }
@@ -325,11 +377,7 @@ main {
 @media (min-width: 80rem) {
     .hamburger-menu, .top-header svg {
         display: none;
-    }
-
-    html {
-        background-color: blue;
-    }
+    } 
 }
 
 .event-container, .news, .twitter_carrousel, .newsletter, .cookies {
@@ -347,7 +395,7 @@ main {
 .highlight__img img {
     object-fit: cover;
     width: 100%;
-    height: 17rem;
+    max-height: 25rem;
 }
 
 .highlight-bottom__content {
@@ -396,6 +444,16 @@ main {
     }
 }
 
+@media (min-width: 80rem) {
+    .event-list {
+        display: flex;
+    }
+
+    .highlight__item {
+        width: 32.5%;
+    }
+}
+
 .news {
     margin-bottom: 5rem;
 }
@@ -420,6 +478,7 @@ main {
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-family: 'Raleway-ExtraBold';
+    font-size: 1rem;
 }
 
 .news p {
@@ -466,10 +525,49 @@ main {
     cursor: pointer;
 }
 
+@media (min-width: 80rem) {
+    .news {
+        width: 75%;
+        margin: auto;
+    }
+
+    .news article {
+        display: block;
+        height: 20rem;
+    }
+
+    .news h2 {
+        font-size: 3rem;
+    }
+
+    .news_image {
+        float: left;
+        margin-right: 4rem;
+    }
+
+    .news_image span {
+        position: absolute;
+        transform: rotate(270deg);
+        left: -2rem;
+        bottom: 40%;
+    }
+
+    .news button {
+        margin-bottom: 8rem;
+    }
+}
+
 .carrousel img {
     width: 100%;
     margin-bottom: 5rem;
     left:0;
+}
+
+@media (min-width: 80rem) {
+    .carrousel {
+        width: 95%;
+        margin: auto;
+    }
 }
 
 .twitter_carrousel_image {
@@ -510,6 +608,33 @@ main {
 
 .twitter_username_span {
     text-decoration: none;
+}
+
+@media (min-width: 80rem) {
+    .twitter_carrousel {
+        margin-left: 1.5rem;
+        margin-bottom: 18rem;
+    }
+
+    .twitter_carrousel_image {
+        margin-right: 5rem;
+        float: left;
+    }
+
+    .twitter_carrousel_beleef {
+        width: 17rem;
+    }
+
+    .twitter_logo {
+        margin-left: 2.5rem;
+        padding-bottom: 1rem;
+        width: 3.7rem;
+    }
+
+    .newsletter {
+        width: 50%;
+        margin: auto;
+    }
 }
 
 .newsletter {
@@ -558,22 +683,18 @@ main {
     font-family: 'Raleway-SemiBold';
     background: black;
     color: white;
-    border: none;
+    border: 3px solid black;
     height: 3.5rem;
     padding: 0 2rem;
     transition: 0.3s;
-    border: none;
 }
 
 .newsletter button:hover, .cookies button:hover {
     color: black;
     background: white;
-    border: 2px solid black;
+    cursor: pointer;
 }
 
-.cookies button {
-    padding: 0.5rem 3rem;
-}
 
 @media (min-width: 36rem) {
     .newsletter .newsletter_flex {
@@ -598,6 +719,24 @@ footer .footer_image p {
     padding: 1.5rem;
     color: white;
     bottom: 5rem;
+}
+
+footer .footer_social_media svg {
+    background: white;
+    border-radius: 50%;
+    width: 3rem;
+    height: auto;
+}
+
+@media (min-width: 80rem) {
+    .footer_image {
+        width: 50%;
+    }
+
+    .cookies {
+        width: 80%;
+        margin: auto;
+    }
 }
 
 .cookies {
