@@ -192,7 +192,7 @@ main {
     .fullscreen_nav-top ::placeholder {
         font-size: 1.2rem;
         font-family: 'Raleway-Regular';
-        padding-left: 5rem;
+        padding-left: 2rem;
     }
 
     .fullscreen_nav-top svg path {
@@ -537,7 +537,7 @@ main {
     }
 
     .news h2 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .news_image {
@@ -763,16 +763,14 @@ footer .footer_social_media svg {
 
 /* dag.html */
 
-.ontdek__dag {
-    position: absolute;
-    bottom: 0.5rem;
-    right: 1.5rem;
+.day-header-container .top-header, .top-header__dag {
+    height: 65vh;
 }
 
-.gf19_container_dag svg {
-    display: absolute;
-    right: 0;
-    bottom: 0;
+.ontdek__dag {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 1.5rem;
 }
 
 .ontdek__dag svg path {
@@ -781,4 +779,161 @@ footer .footer_social_media svg {
 
 .ontdek__dag svg {
     width: 15rem;
+}
+
+.day_filter {
+    padding-left: 1.5rem;
+}
+
+.day_filter h2 {
+    font-family: 'Raleway-ExtraBold';
+    font-size: 2.5rem;
+}
+
+.day-header {
+    position: relative;
+}
+
+.day-header .gf19_container {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 0;
+}
+
+.day-header .gf19_container path {
+    fill: white;
+}
+
+.day-header .ontdek_svg {
+    position: absolute;
+    bottom: 5rem;
+    right: 2rem;
+}
+
+.day-header .ontdek_svg path {
+    fill: white;
+}
+
+.day-header .ontdek {
+    padding: 0;
+}
+
+@media (min-width: 80rem) {
+    .day-header-container .calendar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    .day-header-container .calendar ul {
+        background: black;
+    }
+
+    .day-header-container .calendar ul li a {
+        color: white;
+        display: block;
+    }
+
+    .day-header-container .calendar ul li:hover {
+        background: white;
+    }
+
+    .day-header-container .calendar ul li a:hover {
+        color: black;
+    }
+
+    .day-header-container .gf19_container {
+        transform: rotate(0deg);
+        margin-top: 10rem;
+    }
+}
+
+.day_filter ul {
+    list-style-type: none;
+}
+
+.day_filter_options {
+    position: relative;
+    width: 20%;
+}
+
+.day_filter_options h2 {
+    display: none;
+}
+
+.day_filter_options span {
+    display: none;
+}
+
+.day_filter {
+    padding-top: 2rem;
+}
+
+.day_filter_options_filter .first_icon {
+    display: block;
+    background: black;
+}
+
+.day_filter_options_filter .first_icon path {
+    display: block;
+    fill: white;
+}
+
+.day_filter_options_filter li {
+    margin-bottom: 1rem;
+}
+
+.day_filter_options_filter svg {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid black;
+    transition: 0.3s;
+}
+
+.day_filter_options_filter svg:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
+.day_filter_options_filter svg path:hover {
+    fill: white;
+}
+
+
+.day_filter {
+    display: flex;
+}
+
+.day_filter_categories {
+    width: 80%;
+    padding: 1rem 2rem 0 2rem;
+    background-color: black;
+}
+
+.day_filter_categories a {
+    color: white;
+    text-decoration: none;
+}
+
+.day_filter_categories a:hover {
+    text-decoration: underline;
+}
+
+.day_filter_categories h2 {
+    font-family: 'Raleway-SemiBold';
+    color: white;
+    font-size: 0.95rem;
+    padding-bottom: 1.5rem;
+}
+
+.day_filter_options_checkbox {
+    position: absolute;
+    display: block;
+    top: -5rem;
+    width: 20rem;
+}
+
+.day_filter_options_checkbox li {
+    display: inline-block;
 }
