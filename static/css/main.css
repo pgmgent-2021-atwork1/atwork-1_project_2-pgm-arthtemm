@@ -1,0 +1,645 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Raleway-Regular';
+}
+
+main {
+    max-width: 120rem;
+    margin: auto;
+}
+
+.top-header, .top-header__dag {
+    background: url('../media/header_background.png') no-repeat center center;
+    height: 75vh;
+    background-position-x: 25%;
+    background-size: cover;
+    position: relative;
+    margin-top: 0;
+}
+
+.top-header__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo {
+    padding: 1.2rem;
+    width: 15rem;
+}
+
+.menu {
+    padding: 1.5rem;
+    margin-right: 1rem;
+    width: 5rem;
+}
+
+.menu:hover {
+    cursor: pointer;
+}
+
+.menu g {
+    width: 20%;
+    fill: white;
+}
+
+.ontdek {
+    display: block;
+    padding: 1.2rem;
+    padding-top: 1.5rem;
+}
+
+.ontdek img {
+    width: 7rem;
+}
+
+.ontdek svg path {
+    fill: black;
+}
+
+.ontdek svg {
+    width: 15rem;
+}
+
+.gf19_container {
+    padding-bottom: 0.5rem;
+}
+
+.calendar {
+    color: white;
+    background-color: black;
+}
+
+.calendar ul {
+    text-align: center;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calendar a {
+    padding:  1.5rem 1rem;
+    width: 100%;
+}
+
+.calendar li {
+    transition: .3s;
+    width: 20%;
+}
+
+.calendar li a {
+    transition: 0.3s;
+    display: block;
+    font-size: 0.8rem;
+    font-family: 'Raleway-SemiBold';
+}
+
+.calendar span {
+    font-family: 'Raleway-Regular';
+}
+
+.calendar a {
+    color: white;
+    text-decoration: none;
+}
+
+.calendar li a:hover {
+    color: black;
+}
+
+.calendar li:hover {
+    background-color: white;
+    color: black;
+}
+
+.fullscreen_nav {
+    display: none;
+}
+
+@media (min-width: 80rem) {
+    header {
+        margin-bottom: 5rem;
+    }
+
+    .fullscreen_nav {
+        display: block;
+    }
+
+    .top-header__content .menu {
+        display: none;
+    }
+
+    .bottom-header {
+        right: 0;
+    }
+
+    .calendar {
+        width: 50%;
+        position: absolute;
+        top: 20rem;
+        right: 0;
+    }
+
+    .calendar ul {
+        background: white;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .calendar li a {
+        display: block;
+        transition: 0.3s;
+        color: black;
+    }
+
+    .calendar li {
+        width: 50%;
+    }
+
+    .calendar li:hover {
+        background-color: black;
+    }
+
+    .calendar li a:hover {
+        color: white;
+    }
+
+    .ontdek .gf19_container img {
+        position: absolute;
+        right: 0;
+    }
+
+    .fullscreen_nav-top {
+        width: 30%;
+        display: flex;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: white;
+        justify-content: space-between;
+    }
+
+    .fullscreen_nav-top input {
+        height: 3rem;
+        padding-left: 1rem;
+        background: #e9e9e9;
+        border: none;
+        width: 70%;
+    }
+
+    .fullscreen_nav-top ::placeholder {
+        font-size: 1.2rem;
+        font-family: 'Raleway-Regular';
+        padding-left: 5rem;
+    }
+
+    .fullscreen_nav-top svg path {
+        fill: white;
+    }
+}
+
+.hamburger-menu.open {
+    font-family: 'Raleway-ExtraBold';
+    background-color: black;
+    color: white;
+    position: fixed;
+    z-index: 10;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hamburger-menu nav {
+    padding-top: 10%;
+    width: 80%;
+    margin: auto;  
+}
+
+.hamburger-menu ul {
+    list-style-type: none;
+}
+
+.hamburger-menu li {
+    line-height: 3.2rem;
+    font-size: 1.6rem;
+}
+
+.nav_item:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    cursor: pointer;
+}
+
+.icon_dropdown_program {
+    transition: 0.3s;
+    width: 2rem;
+    size: 2rem;
+}
+
+.icon_dropdown_program.open {
+    transform: rotate(180deg);
+}
+
+.navigation {
+    display: none;
+}
+
+.navigation.open {
+    display: block;
+}
+
+.navigation.open a {
+    text-decoration: none;
+    color: white;
+}
+
+.program_dropdown {
+    transition: 0.3s;
+    display: none;
+}
+
+.program_dropdown.open {
+    display: block;
+}
+
+.icon_dropdown_program path {
+    fill: white;
+}
+
+.program_dropdown {
+    font-family: 'Raleway-Regular';
+}
+
+.program_dropdown li {
+    border-left: 4px solid white;
+    padding-left: 2.5rem;
+    font-size: 1.2rem;
+}
+
+.program_dropdown li:hover {
+    text-decoration: underline;
+}
+
+.close-btn.open {
+    transition: 0.3s ease-in-out;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+}
+
+.close-btn.open:hover {
+    transform: rotate(180deg);
+}
+
+.close-btn path {
+    fill: white;
+}
+
+@media (min-width: 48rem) {
+    .logo {
+        width: 23rem;
+    }
+
+    .calendar li {
+        width: 10%;
+    }
+
+    .calendar li a {
+        font-size: 1rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .calendar li h2 {
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width: 80rem) {
+    .hamburger-menu, .top-header svg {
+        display: none;
+    }
+
+    html {
+        background-color: blue;
+    }
+}
+
+.event-container, .news, .twitter_carrousel, .newsletter, .cookies {
+    padding: 0 1.5rem;
+}
+
+.highlight__item {
+    font-family: 'Raleway-Bold';
+}
+
+.highlight__item a {
+    text-decoration: none;
+}
+
+.highlight__img img {
+    object-fit: cover;
+    width: 100%;
+    height: 17rem;
+}
+
+.highlight-bottom__content {
+    width: 80%;
+    margin-left: 2.5rem;
+}
+
+.bottom__date {
+    font-size: 1.5rem;
+    position: absolute;
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    transform: translateY(-1.2rem);
+}
+
+.bottom__title {
+    padding-top: 3rem;
+}
+
+.bottom__title {
+    color: black;
+    line-height: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.highlight-bottom__content {
+    margin-bottom: 3rem;
+}
+
+.bottom__loc {
+    font-family: 'Raleway-Regular';
+    color: black;
+}
+
+@media (min-width: 48rem) {
+    .event-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .highlight__item {
+        width: 48.5%;
+    }
+}
+
+.news {
+    margin-bottom: 5rem;
+}
+
+.news article {
+    margin-bottom: 5rem;
+}
+
+.news_image {
+    position: relative;
+}
+
+.news_image img {
+    width: 100%;
+}
+
+.news article {
+    color: black;
+}
+
+.news h2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Raleway-ExtraBold';
+}
+
+.news p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+.news h2, .news p, .news span {
+    color: black;
+}
+
+.news a {
+    text-decoration: none;
+}
+
+.news_image span {
+    font-size: 1.3rem;
+    font-family: 'Raleway-SemiBold';
+    position: absolute;
+    background: white;
+    left:0;
+    bottom: 0;
+    padding: 0.7rem 1.5rem;
+}
+
+.news p {
+    margin-bottom: 1rem;
+}
+
+.news button {
+    background: white;
+    font-size: 1.2rem;
+    font-family: 'Raleway-SemiBold';
+    text-decoration: none;
+    color: black;
+    border: 3px solid black;
+    padding: 1.5rem 2.5rem;
+    transition: 0.5s;
+}
+
+.news button:hover {
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+.carrousel img {
+    width: 100%;
+    margin-bottom: 5rem;
+    left:0;
+}
+
+.twitter_carrousel_image {
+    margin-bottom: 2rem;
+}
+
+.twitter_carrousel_image img {
+    width: 100%;
+}
+
+.twitter_carrousel_svgs {
+    margin-bottom: 2rem;
+}
+
+.twitter_carrousel_beleef {
+    width: 10rem; 
+    height: auto
+}
+
+.twitter_carrousel p {
+    line-height: 1.7rem;
+}
+
+.twitter_logo {
+    width: 8%;
+    height: auto;
+    margin-left: 1rem;
+}
+
+.twitter_carrousel_content h2 {
+    margin-bottom: 1.5rem;
+}
+
+.twitter_carrousel_content span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.twitter_username_span {
+    text-decoration: none;
+}
+
+.newsletter {
+    margin-top: 5rem;
+}
+
+.newsletter h2 {
+    font-size: 2rem;
+    font-family: 'Raleway-ExtraBold';
+    margin-bottom: 1.5rem;
+}
+
+.newsletter h3 {
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-family: 'Raleway-Regular';
+}
+
+.newsletter span {
+    text-decoration: underline;
+}
+
+.newsletter span:hover {
+    cursor: pointer;
+}
+
+.newsletter form {
+    margin-bottom: 2rem;
+}
+
+.newsletter form label {
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.newsletter input {
+    background: #e9e9e9;
+    height: 3.5rem;
+    border: none;
+    width: 100%;
+    margin-bottom: 0.8rem;
+}
+
+.newsletter button, .cookies button {
+    font-size: 1.15rem;
+    font-family: 'Raleway-SemiBold';
+    background: black;
+    color: white;
+    border: none;
+    height: 3.5rem;
+    padding: 0 2rem;
+    transition: 0.3s;
+    border: none;
+}
+
+.newsletter button:hover, .cookies button:hover {
+    color: black;
+    background: white;
+    border: 2px solid black;
+}
+
+.cookies button {
+    padding: 0.5rem 3rem;
+}
+
+@media (min-width: 36rem) {
+    .newsletter .newsletter_flex {
+        display: flex;
+    }
+}
+
+footer {
+    background-image: url('../media/footer_image.png');
+    height: 50vh;
+    background-position-x: 70%;
+    background-position-y: 60%;
+    background-size: cover;
+    margin-top: 0;
+    position: relative;
+}
+
+footer .footer_image p {
+    font-size: 1.3rem;
+    font-family: 'Raleway-SemiBold';
+    position: absolute;
+    padding: 1.5rem;
+    color: white;
+    bottom: 5rem;
+}
+
+.cookies {
+    margin: 2rem 1rem;
+}
+
+.cookies p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+.cookies p {
+    margin-bottom: 1rem;
+}
+
+.cookies span {
+    font-family: 'Raleway-SemiBold';
+}
+
+.cookies img {
+    width: 3.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* dag.html */
+
+.ontdek__dag {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1.5rem;
+}
+
+.gf19_container_dag svg {
+    display: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.ontdek__dag svg path {
+    fill: white;
+}
+
+.ontdek__dag svg {
+    width: 15rem;
+}
