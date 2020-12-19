@@ -14,6 +14,8 @@
             this.$programDropdownList = document.querySelector('.program_dropdown');
             this.$program = document.querySelector('.program');
             this.$dayEventList = document.querySelector('.day-event-list');
+            this.$gridToggle = document.querySelector('.grid_layout');
+            this.$listLayout = document.querySelector('.list_layout');
         },
 
         RegisterListeners: function () {
@@ -40,6 +42,14 @@
                     this.$programDropdown.classList.remove('open');
                     dropDownOpen = false;
                 }
+            });
+            this.$gridToggle.addEventListener('click', () => {
+                this.$listLayout.classList.remove('selected');
+                this.$gridToggle.classList.add('selected');
+            });
+            this.$listLayout.addEventListener('click', () => {
+                this.$gridToggle.classList.remove('selected');
+                this.$listLayout.classList.add('selected');
             });
         },
     };

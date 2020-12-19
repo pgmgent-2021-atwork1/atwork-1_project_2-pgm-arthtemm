@@ -50,7 +50,6 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
             fetch(CATEGORY_API)
                 .then((response) => response.json())
                 .then((json) => {
-                    console.log(json);
                     this.categories = json;
                     this.fetchEvents();
                 })
@@ -62,11 +61,19 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                 .then((response) => response.json())
                 .then((json) => {
                     this.events = json;
-                    console.log(json);
                     this.populateHTMLForCategoryList();
                     this.populateHTMLForFullOverview();
+                    this.filterTesting();
                 })
                 .catch((error) => console.log(error));
+        },
+
+        filterTesting() {
+            const dayEvents = this.events.filter(event => {
+                return event.day_of_week === 'Vrijdag';
+            }).map(event => {
+                return event;
+            });
         },
 
         populateHTMLForCategoryList() {
@@ -82,15 +89,27 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
         },
 
         populateHTMLForFullOverview() {
-            const htmlForFullOverview = this.categories.map((category) => {
-                const filteredEvents = this.events.filter((event) => {
-                    return event.category.indexOf(category) > -1;
+            const search = window.location.search;
+            const params = new URLSearchParams(search);
+            const urlType = params.get('day');
+            console.log(urlType);
+
+            if (urlType !== null) {
+                const dayType = this.events.filter((dayOfWeek) => {
+                    return dayOfWeek.day === urlType;
                 });
 
-                const listItems = filteredEvents.map((event) => {
-                    return `
+                const fullOverView = this.categories.map((category) => {
+                    const filteredEvents = dayType.filter((event) => {
+                        return event.category.indexOf(category) > -1;
+                    });
+                    filteredEvents.sort((event1, event2) => {
+                        return event1.sort_key.localeCompare(event2.sort_key);
+                    });
+                    const listItems = filteredEvents.map((event) => {
+                        return `
                     <li class="highlight__item">
-                    <a class="highlight-item__link" href="#">
+                    <a class="highlight-item__link" href="detail.html?day=${event.day}&slug=${event.slug}">
                         <div class="link__top">
                             <div class="highlight__img">
                                 <img class="highlight__img__img" src="${event.image == null ? FALLBACK_IMAGE : event.image.thumb}" alt="${event.title}">
@@ -102,22 +121,22 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                             <span class="bottom__loc">${event.location}</span>
                         </div>
                     </a>
-                </li>`;
-                }).join('');
+                    </li>`;
+                    }).join('');
 
-                return `
+                    return `
                     <section class="titles">
                         <h1 id="${category}">${category} <a href="#main"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                         <path d="M13.682 11.791l-6.617 6.296-3.065-2.916 11.74-11.171 12.26 11.665-2.935 2.793-7.113-6.768v16.311h-4.269z"></path>
                         </svg></span></a></h1>
-                        <ul>
+                        <ul class="fullListOfEvents">
                             ${listItems}
                         </ul>
                     </section>
                 `;
-            }).join('');
-
-            this.$eventsPerCategory.innerHTML = htmlForFullOverview;
+                }).join('');
+                this.$eventsPerCategory.innerHTML = fullOverView;
+            };
         },
 
         updateEventsUI(data) {
@@ -165,7 +184,7 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                 };
                 this.$dayEventList.innerHTML = tempStr;
             }
-        }
+        },
     };
     app.initialize();
 })();
