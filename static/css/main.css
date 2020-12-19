@@ -371,7 +371,7 @@ main {
     } 
 }
 
-.event-container, .news, .twitter_carrousel, .newsletter, .cookies {
+.event-container, .news, .twitter_carrousel, .newsletter, .cookies, .day_item-container {
     padding: 0 1.5rem;
 }
 
@@ -424,7 +424,7 @@ main {
 }
 
 @media (min-width: 48rem) {
-    .event-list {
+    .event-list, .day_item-list {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -436,7 +436,7 @@ main {
 }
 
 @media (min-width: 80rem) {
-    .event-list {
+    .event-list, .day_item-list {
         display: flex;
     }
 

@@ -23,6 +23,7 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
             this.$dayEventList = document.querySelector('.day-event-list');
             this.$dayFilterCategories = document.querySelector('.day_filter_categories');
             this.$eventsPerCategory = document.querySelector('.events_per_category');
+            this.$dayHighlight = document.querySelector('.day_item-list');
         },
         getDataFromEventsAPIEndpoint() {
             fetch(EVENTS_API, {})
@@ -106,6 +107,7 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                     filteredEvents.sort((event1, event2) => {
                         return event1.sort_key.localeCompare(event2.sort_key);
                     });
+
                     const listItems = filteredEvents.map((event) => {
                         return `
                     <li class="highlight__item">
@@ -145,7 +147,7 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                 let randomNummer = data[Math.floor(Math.random() * data.length)];
                 tempStr += `
                 <div class="highlight__item">
-                <a class="highlight-item__link" href="#">
+                <a class="highlight-item__link" href="detail.html?day=${randomNummer.day}&slug=${randomNummer.slug}">
                     <div class="link__top">
                         <div class="highlight__img">
                             <img class="highlight__img__img" src="${randomNummer.image == null ? FALLBACK_IMAGE : randomNummer.image.thumb}" alt="${randomNummer.title}">
@@ -168,7 +170,7 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                     let randomNummer = data[Math.floor(Math.random() * data.length)];
                     tempStr += `
                 <div class="highlight__item">
-                <a class="highlight-item__link" href="#">
+                <a class="highlight-item__link" href="detail.html?day=${randomNummer.day}&slug=${randomNummer.slug}">
                     <div class="link__top">
                         <div class="highlight__img">
                             <img class="highlight__img__img" src="${randomNummer.image == null ? EVENT_PICTURE_ARRAY[Math.floor(Math.random() * EVENT_PICTURE_ARRAY.length)] : randomNummer.image.thumb}" alt="${randomNummer.title}">
