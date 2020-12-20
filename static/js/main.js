@@ -43,7 +43,7 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                     }
                     throw new Error('Something went wrong!');
                 })
-                .then(json => this.updateDayEvents(json))
+                .then(json => this.updateDailyEvents(json))
                 .catch(error => console.warn(error));
         },
 
@@ -64,17 +64,8 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                     this.events = json;
                     this.populateHTMLForCategoryList();
                     this.populateHTMLForFullOverview();
-                    this.filterTesting();
                 })
                 .catch((error) => console.log(error));
-        },
-
-        filterTesting() {
-            const dayEvents = this.events.filter(event => {
-                return event.day_of_week === 'Vrijdag';
-            }).map(event => {
-                return event;
-            });
         },
 
         populateHTMLForCategoryList() {
@@ -140,7 +131,6 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                 this.$eventsPerCategory.innerHTML = fullOverView;
             };
         },
-
         updateEventsUI(data) {
             let tempStr = '';
             for (let i = 0; i < 3; i++) {
@@ -163,29 +153,27 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
             };
             this.$eventList.innerHTML = tempStr;
         },
-        updateDayEvents(data) {
+        updateDailyEvents(data) {
             let tempStr = '';
             for (let i = 0; i < 3; i++) {
-                if (data.day_of_week === 'Vrijdag'); {
-                    let randomNummer = data[Math.floor(Math.random() * data.length)];
-                    tempStr += `
+                let randomNummer = data[Math.floor(Math.random() * data.length)];
+                tempStr += `
                 <div class="highlight__item">
                 <a class="highlight-item__link" href="detail.html?day=${randomNummer.day}&slug=${randomNummer.slug}">
                     <div class="link__top">
                         <div class="highlight__img">
-                            <img class="highlight__img__img" src="${randomNummer.image == null ? EVENT_PICTURE_ARRAY[Math.floor(Math.random() * EVENT_PICTURE_ARRAY.length)] : randomNummer.image.thumb}" alt="${randomNummer.title}">
+                            <img class="highlight__img__img" src="${randomNummer.image == null ? FALLBACK_IMAGE : randomNummer.image.thumb}" alt="${randomNummer.title}">
                         </div>
                     </div>
                     <div class="highlight-bottom__content">
-                        <span class="bottom__date"><span class="date__day">${randomNummer.day_of_week.slice(0,2)} ${randomNummer.day} Jul</span> <span class="date__time">${randomNummer.start} u.</span></span>
+                        <span class="bottom__date"><span class="date__time">${randomNummer.start} u.</span></span>
                         <h2 class="bottom__title">${randomNummer.title}</h2>
                         <span class="bottom__loc">${randomNummer.location}</span>
                     </div>
                 </a>
             </div>`;
-                };
-                this.$dayEventList.innerHTML = tempStr;
-            }
+            };
+            this.$dayHighlight.innerHTML = tempStr;
         },
     };
     app.initialize();

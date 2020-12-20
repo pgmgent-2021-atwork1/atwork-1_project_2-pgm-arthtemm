@@ -623,7 +623,7 @@ main {
     }
 
     .newsletter {
-        width: 50%;
+        width: 40%;
         margin: auto;
     }
 }
@@ -667,6 +667,7 @@ main {
     border: none;
     width: 100%;
     margin-bottom: 0.8rem;
+    padding-left: 1rem;
 }
 
 .newsletter button, .cookies button {
@@ -712,21 +713,39 @@ footer .footer_image p {
     bottom: 5rem;
 }
 
+.footer_social_media {
+    margin-left: 0.75rem;
+    margin-top: 1rem;
+}
+
 footer .footer_social_media svg {
     background: white;
     border-radius: 50%;
-    width: 3rem;
+    width: 2rem;
     height: auto;
+    transform: translateY(16rem);
+    margin-right: 0.5rem;
 }
 
 @media (min-width: 80rem) {
     .footer_image {
-        width: 50%;
-    }
-
-    .cookies {
         width: 80%;
         margin: auto;
+    }
+
+    .footer_image {
+        width: 60%;
+    }
+
+    .cookies img {
+        margin-right: 2rem;
+    }
+
+    .cookies_content {
+        width: 60%;
+        margin: auto;
+        display: flex;   
+        align-items: center;
     }
 }
 
@@ -923,7 +942,7 @@ footer .footer_social_media svg {
 .day_filter_options_checkbox {
     position: absolute;
     display: block;
-    top: -5rem;
+    top: -3rem;
     width: 20rem;
 }
 
@@ -1114,3 +1133,86 @@ footer .footer_social_media svg {
     }
 }
 
+.otherEvents div {
+    width: 80%;
+    background-color: black;
+    margin-bottom: 1rem;
+}
+
+.otherEvents .bottom__date {
+    position: relative;
+    font-family: 'Raleway-ExtraBold';
+    font-size: 1rem;
+    padding-left: 0;
+}
+
+.otherEvents .highlight-bottom__content {
+    padding: 1rem;
+}
+
+.otherEvents .bottom__title {
+    font-family: 'Raleway-ExtraBold';
+    font-size: 1.3rem;
+    padding-top: 1rem;
+    margin-bottom: 0;
+}
+
+.otherEvents span, .otherEvents h2 {
+    color: white;
+}
+
+.otherEvents button {
+    transition: 0.3s;
+    margin-top: 2rem;
+    font-family: 'Raleway-SemiBold';
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    border: 2px solid black;
+    background-color: white;
+    margin-left: 2.5rem;
+}
+
+.otherEvents button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+@media (min-width: 48rem) {
+    .otherEvents div {
+        position: relative;
+        width: 96%;
+        display: flex;
+    }
+
+    .otherEvents .bottom__date {
+        width: 10%;
+        margin-top: 2rem;
+    }
+
+    .otherEvents .bottom__loc {
+        position: absolute;
+        right: 5rem;
+        height: 1rem;
+        top: 2.5rem;
+    }
+}
+
+.detail_content {
+    width: 100%;
+}
+
+.detail_image {
+    width: 90%;
+    margin: auto;
+    object-fit: cover;
+}
+
+.detail_info {
+    width: 90%;
+    margin: auto;
+}
+
+.detail_image img {
+    width: 100%;
+}
