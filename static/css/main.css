@@ -1199,6 +1199,7 @@ footer .footer_social_media svg {
 }
 
 .detail_content {
+    position: relative;
     width: 100%;
 }
 
@@ -1215,4 +1216,57 @@ footer .footer_social_media svg {
 
 .detail_image img {
     width: 100%;
+    margin-top: 9rem;
+    margin-bottom: 2rem;
+}
+
+.detail_content h2 {
+    font-family: 'Raleway-ExtraBold';
+}
+
+.detail_content .detail_info_time {
+    position: absolute;
+    top: 0;
+}
+
+.detail_content .detail_title {
+    margin-bottom: 0.5rem;
+}
+
+.detail_content .detail_location {
+    font-family: 'Raleway-SemiBold';
+    margin-bottom: 1.5rem;
+}
+
+.detail_content .detail_desc {
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 48rem) {
+    .detail_content {
+        margin-bottom: 15%;
+        position: relative;
+        display: flex;
+    }
+
+    .detail_image {
+        margin-right: 2rem;
+    }
+
+    .detail_image img {
+        position: absolute;
+        top: -10rem;
+        width: 50%;
+    }
+
+    .detail_desc {
+        position: relative;
+        padding-top: 10rem;
+    }
+
+    .detail_info {
+        position: relative;
+        height: 20rem;
+        margin: 0;
+    }
 }

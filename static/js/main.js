@@ -87,6 +87,7 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
             console.log(urlType);
 
             if (urlType !== null) {
+
                 const dayType = this.events.filter((dayOfWeek) => {
                     return dayOfWeek.day === urlType;
                 });
@@ -129,6 +130,22 @@ const FALLBACK_IMAGE = 'https://data.stad.gent/explore/dataset/gentse-feesten-ev
                 `;
                 }).join('');
                 this.$eventsPerCategory.innerHTML = fullOverView;
+
+                let item;
+                for (let i = 0; i < events.length; i++) {
+                    if (events[i].day === urlType) {
+                        item = events[i];
+                        console.log(item);
+                    };
+                };
+
+                const $detailTitle = document.querySelector('.detail_title');
+                const $detailDate = document.querySelector('.detail_date');
+                const $detailDescription = document.querySelector('.detail_desc');
+
+                if (item) {
+                    $detailTitle.innerHTML = item.title;
+                };
             };
         },
         updateEventsUI(data) {
